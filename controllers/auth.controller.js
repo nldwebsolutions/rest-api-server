@@ -12,7 +12,7 @@ exports.signup = async (req, res) => {
   try {
     var userDoc = await user.save();
     var token = await jwt.sign({id: userDoc._id}, process.env.JWT_SECRET_KEY, { expiresIn: '6h' });
-    res.status(200).json({token: token, user: userDoc});
+    res.status(201).json({token: token, user: userDoc});
   } catch (err) {
     res.status(500).json({message: err.message || 'Unable to create new user'});
   }

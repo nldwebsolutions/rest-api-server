@@ -9,5 +9,20 @@ module.exports = function(app) {
     controller.findAll
   );
 
+  router.get(
+    "/:id",
+    controller.findOne
+  );
+
+  router.put(
+    "/:id",
+    controller.update
+  );
+
+  router.delete(
+    "/:id",
+    controller.delete
+  );
+
   app.use('/users', router);
 }
